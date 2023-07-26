@@ -40,13 +40,13 @@ const WineProducts = () => {
                 <p>Rating : {wine.ratingCount}</p>
               </div>
             </div>
-            <div className="absolute top-10 bg-black w-full h-full opacity-0 hover:-top-0 hover:opacity-100 transition-all duration-700 ">
+            <div className="absolute top-10 bg-black w-full h-full opacity-0 hover:-top-0 hover:opacity-100 transition-all duration-700 overflow-y-scroll">
               {wine.description === "" ? (
                 <p className="text-white text-center mt-10 text-lg w-full h-full">
                   No Description Found
                 </p>
               ) : (
-                <p className="text-center text-lg p-2 text-white ">
+                <p className="text-center text-lg p-2 text-white">
                   {wine.description}
                 </p>
               )}
