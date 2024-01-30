@@ -7,11 +7,11 @@ const Recipe = () => {
   const [ingredient, setIngredient] = useState({});
   const [active, setActive] = useState("summary");
   useEffect(() => {
-    let fetch = async () => {
+    let fetchAPI = async () => {
       let res = await getIngredient(id);
       setIngredient(res);
     };
-    fetch();
+    fetchAPI();
   }, [id]);
   return (
     <div className="container mx-auto">

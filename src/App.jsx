@@ -16,7 +16,6 @@ const App = () => {
           <Route path="/cuisine/:cuisine" element={<Cuisine />} />
           <Route path="/search/:search" element={<Search />} />
           <Route path="/recipe/:id" element={<Recipe />} />
-          <Route path="/wine/:id" />
         </Routes>
       </BrowserRouter>
     </div>

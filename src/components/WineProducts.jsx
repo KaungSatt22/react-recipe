@@ -2,23 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { getWine } from "../api/api";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import useFetch from "../hook/useFetch";
 
 const WineProducts = () => {
-  const [wineDB, setWineDB] = useState([]);
-  useEffect(() => {
-    let fetch = async () => {
-      let res = await getWine();
-      setWineDB(res);
-      localStorage.setItem("wine", JSON.stringify(res));
-    };
-    if (localStorage.getItem("wine")) {
-      setWineDB(JSON.parse(localStorage.getItem("wine")));
-    } else {
-      fetch();
-    }
-  }, []);
-
+  const wineDB = useFetch("wine", getWine);
   return (
     <div className="mb-10">
       <h2 className="font-bold text-center  text-4xl mb-5">Wine Products</h2>
@@ -40,7 +27,7 @@ const WineProducts = () => {
                 <p>Rating : {wine.ratingCount}</p>
               </div>
             </div>
-            <div className="absolute top-10 bg-black w-full h-full opacity-0 hover:-top-0 hover:opacity-100 transition-all duration-700 overflow-y-scroll">
+            <div className="absolute top-10 bg-black inset-0 opacity-0 hover:top-0 hover:opacity-100 transition-all duration-700 overflow-y-scroll">
               {wine.description === "" ? (
                 <p className="text-white text-center mt-10 text-lg w-full h-full">
                   No Description Found

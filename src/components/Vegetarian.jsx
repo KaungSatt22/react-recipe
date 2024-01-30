@@ -3,21 +3,12 @@ import { getRandompopular } from "../api/api.js";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
 import "@splidejs/react-splide/css";
+import useFetch from "../hook/useFetch.jsx";
 
 const Vegetarian = () => {
-  const [vegetarian, setVegetarian] = useState([]);
-  useEffect(() => {
-    const fetch = async () => {
-      let res = await getRandompopular("vegetarian");
-      setVegetarian(res);
-      localStorage.setItem("vegetarian", JSON.stringify(res));
-    };
-    if (localStorage.getItem("vegetarian")) {
-      setVegetarian(JSON.parse(localStorage.getItem("vegetarian")));
-    } else {
-      fetch();
-    }
-  }, []);
+  const vegetarian = useFetch("vegetarian", () =>
+    getRandompopular("vegetarian")
+  );
   return (
     <div className="">
       <h2 className="text-3xl font-bold mb-5 text-center lg:text-left">
