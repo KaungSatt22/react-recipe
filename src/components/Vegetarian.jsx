@@ -1,6 +1,6 @@
 import { getRandompopular } from "../api/api.js";
 import { Splide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import "@splidejs/react-splide/css/skyblue";
 import useFetch from "../hook/useFetch.jsx";
 import VegatarianItem from "./VegatarianItem.jsx";
 
