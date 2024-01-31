@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import { getRandompopular } from "../api/api.js";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { Link } from "react-router-dom";
+import { Splide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import useFetch from "../hook/useFetch.jsx";
+import VegatarianItem from "./VegatarianItem.jsx";
 
 const Vegetarian = () => {
   const vegetarian = useFetch("vegetarian", () =>
@@ -17,19 +16,7 @@ const Vegetarian = () => {
       <div className="mb-20">
         <Splide options={{ perPage: 3, drag: "free", gap: "1rem" }}>
           {vegetarian.map((data) => (
-            <SplideSlide key={data.id}>
-              <Link to={`/recipe/${data.id}`}>
-                <div className="rounded-lg ">
-                  <img
-                    src={data.image}
-                    className="rounded-lg  object-cover lg:h-[20rem]"
-                  />
-                  <p className="bg-slate-50 p-3 rounded-lg lg:h-20 text-center text-lg">
-                    {data.title}
-                  </p>
-                </div>
-              </Link>
-            </SplideSlide>
+            <VegatarianItem {...data} key={data.id} />
           ))}
         </Splide>
       </div>

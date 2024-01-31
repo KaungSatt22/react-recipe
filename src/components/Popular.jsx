@@ -4,7 +4,6 @@ import useFetch from "../hook/useFetch.jsx";
 
 const Popular = () => {
   const popular = useFetch("popular", getRandompopular);
-
   return (
     <div className="my-10 overflow-hidden">
       <h2 className="text-3xl font-bold mb-5 text-center lg:text-left">
